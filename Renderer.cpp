@@ -127,3 +127,15 @@ void Renderer::drawPieces(SDL_Renderer* renderer, const Board& board) {
         }
     }
 }
+
+void Renderer::highLightSquare(SDL_Renderer* renderer, int row, int col) {
+    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 128);
+    SDL_FRect rect = {
+        static_cast<float>(col * SQUARE_SIZE),
+        static_cast<float>(row * SQUARE_SIZE),
+        static_cast<float>(SQUARE_SIZE),
+        static_cast<float>(SQUARE_SIZE)
+    };
+    SDL_RenderFillRect(renderer, &rect);
+}
+

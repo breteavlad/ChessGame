@@ -21,6 +21,7 @@ bool ChessGame::init() {
 
     // Initialize the board to starting position
     board.initStartPosition();
+    board.printBoard();
 
     // Load textures once
     if (!drawer.loadPieceTextures(renderer, "C:/Users/Vlad/Desktop/Projects/C++/ChessGame/Pieces")) {
@@ -36,8 +37,8 @@ bool ChessGame::init() {
 
 void ChessGame::run() {
 	while (running) {
+        update();
 		handleEvents();
-		update();
 		render();
 		SDL_Delay(16);
 	}
@@ -46,9 +47,14 @@ void ChessGame::run() {
 void ChessGame::handleEvents() {
 	input.pollEvents(running, board);
 }
-void ChessGame::update() {
 
+void ChessGame::update()
+{
 }
+
+
+
+
 void ChessGame::render() {
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_RenderClear(renderer);
